@@ -1,4 +1,4 @@
-第一题：
+//第一题
 #include <iostream>
 using namespace std;
 int main()
@@ -9,4 +9,4 @@ b=a/100+a%10+(a/10)%10;
 cout<<b<<endl;
 }
 
-第二题
+//第二题
