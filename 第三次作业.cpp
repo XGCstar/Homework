@@ -201,3 +201,87 @@ int main()
 	}
 	return 0;
 }
+
+
+
+
+
+//成绩排名
+#include<iostream>
+#include<string.h>
+using namespace std;
+
+typedef struct
+{
+ char name[31];
+ float Pinshi;
+ float Qimo;
+ float Total;
+}stu;
+
+class Rank
+{
+public:
+    void input();
+    void rank();
+    void print();
+
+private:
+    int n;
+    stu s[101];
+
+};
+
+void Rank::input()
+{
+ int i=0;
+ char name[31];
+ float Pinshi;
+ float Qimo;
+ while((cin>>name>>Pinshi>>Qimo))
+ {
+  strcpy(s[i].name,name);
+  s[i].Pinshi=Pinshi;
+  s[i].Qimo=Qimo;
+  s[i].Total=Pinshi*0.4+Qimo*0.6;
+  i++;
+  }
+ n=i;
+}
+
+void Rank::rank()
+{
+ stu tmp;
+ for(int i=1;i<n;i++)
+ {
+  for(int j=0;j<n-i;j++)
+  {
+   if(s[j].Total<s[j+1].Total)
+   {
+    tmp=s[j];
+    s[j]=s[j+1];
+    s[j+1]=tmp;
+   }
+  }
+ }
+}
+
+void Rank::Print()
+{
+ for(int i=0;i<n;i++)
+ {
+  printf("%s %.2f %.2f %.2f\n",s[i].name,s[i].Pinshi,s[i].Qimo,s[i].Total);
+ }
+}
+
+#include<iostream>
+#include<stdio.h>
+using namespace std;
+int main()
+{
+ Rank a;
+ a.Input();
+ a.rank();
+ a.Print();
+ return 0;
+}
