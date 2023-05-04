@@ -279,15 +279,15 @@ class Super_sushu{
 public:
 	void sushu()
 	{
-		int n,i,j,k,flag,count=0,total=0,a[999];
+		int n,i,j,k,flag1,flag2,flag3,flag4,he,ji,pfh,count=0,total=0,a[999];
 		for(n=100;n<=999;n++)
 		{
 			for(i=2;i<n;i++)
 			{
-				flag=0;
+				flag1=0;
 				if(n%i==0)
 				{
-					flag=1;
+					flag1=1;
 					break;
 				}
 				if(n%i!=0)
@@ -295,7 +295,53 @@ public:
 					continue;
 				}
 			}
-		 if(flag==0)
+		int bai,shi,ge;
+		bai=n/100;
+		shi=(n-bai*100)/10;
+		ge=n-bai*100-shi*10;
+		he=bai+shi+ge;
+		ji=bai*shi*ge;
+		pfh=bai*bai+shi*shi+ge*ge;
+		for(i=2;i<he;i++)
+		{
+			flag2=0;
+			if(he%i==0)
+			{
+				flag2=1;
+				break;
+			}
+			if(he%i!=0)
+			{
+				continue; 
+			}
+		}
+		for(i=2;i<ji;i++)
+		{
+			flag3=0;
+			if(ji%i==0)
+			{
+				flag3=1;
+				break;
+			}
+			if(ji%i!=0)
+			{
+				continue; 
+			}
+		}
+		for(i=2;i<pfh;i++)
+		{
+			flag4=0;
+			if(pfh%i==0)
+			{
+				flag4=1;
+				break;
+			}
+			if(pfh%i!=0)
+			{
+				continue; 
+			}
+		}
+		 if(flag1==0&&flag2==0&&flag3==0&&flag4==0)
 		 {
 			count++;
 			total=total+n;
